@@ -5,6 +5,8 @@ import br.com.brunoaguiar.pokemongo.api.AuthInterceptor
 import br.com.brunoaguiar.pokemongo.api.PokemonRepository
 import br.com.brunoaguiar.pokemongo.api.PokemonRepositoryImpl
 import br.com.brunoaguiar.pokemongo.api.PokemonService
+import br.com.brunoaguiar.pokemongo.model.ListPokemonsViewModel
+import br.com.brunoaguiar.pokemongo.view.form.FormPokemonViewModel
 import br.com.brunoaguiar.pokemongo.view.splash.SplashViewModel
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.picasso.OkHttp3Downloader
@@ -43,6 +45,8 @@ private fun createPicassoAuth(context: Context, okHttpClient: OkHttpClient): Pic
 
 val viewModelModule = module {
     viewModel { SplashViewModel(get()) }
+    viewModel { ListPokemonsViewModel(get()) }
+    viewModel { FormPokemonViewModel(get()) }
 }
 val repositoryModule = module {
     single<PokemonRepository> { PokemonRepositoryImpl(get()) }
